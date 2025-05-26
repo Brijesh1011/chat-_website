@@ -12,7 +12,7 @@ import { app,server } from "./lib/socket.js"
 
 dotenv.config()
 
-const port = process.env.PORT
+const port = process.env.PORT || 5001
 
 // Increase JSON and URL-encoded body size limits
 app.use(express.json({ limit: '5mb' }));
@@ -26,6 +26,9 @@ app.use(cors({
 
 app.use("/api/auth", router)
 app.use("/api/messages", messageroute)
+app.get("/", (req, res) => {
+    res.send("Test route working!");
+});
 
 
 server.listen(port, () => {
