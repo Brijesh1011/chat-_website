@@ -19,10 +19,7 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
 app.use(cookieParser());
-app.use(cors({
-    origin: process.env.FRONT_END_URI,
-    credentials: true
-}))
+app.use(cors())
 
 app.use("/api/auth", router)
 app.use("/api/messages", messageroute)
