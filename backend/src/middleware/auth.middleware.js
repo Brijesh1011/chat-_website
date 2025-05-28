@@ -5,6 +5,8 @@ export const authlogin=async (req,res,next)=>{
   try {
     
     const token =req.cookies.jwt;
+    console.log("Cookies on request:", req.cookies);
+
 
     if(!token){
         return res.status(400).json({message:"Unauthorized -no token provided"})
